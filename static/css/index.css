@@ -1,0 +1,15 @@
+div{
+  width: 500px;
+  display: inline-block;
+}
+input{
+  display: inline-block;
+  margin-right: 300px;
+}
+*{
+  vertical-align: top;
+}
+.flash{
+  background-color: #ff4f4f;
+  display: block;
+}

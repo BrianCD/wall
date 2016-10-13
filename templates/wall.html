@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/wall.css') }}">
+  </head>
+  <body>
+    <pre style="text-align:right">
+      Welcome, {{name}}!          <a href="/logout">Log out</a>
+    </pre>
+    <hr>
+    <form class="" action="/post" method="post">
+      <textarea name="post" rows="8" cols="200"></textarea>
+      <input type="submit" name="name" value="Post" style = "display:block; margin-left:1380px; background-color:blue; color:white">
+    </form>
+    {% for message in messages: %}
+    <div class="message" {%if col%}style = "background-color:{{message["bcolor"]}};color:{{message["mcolor"]}}"{%endif%}>
+      {{message["first_name"]}} {{message["last_name"]}} - {{message["created_at"]}}
+      <p>
+        {{message["message"]}}
+        <div class="comments">
+          {% for comment in message["comments"]: %}
+          <div class="comment"  {%if col%}style = "background-color:{{comment["bcolor"]}};color:{{comment["ccolor"]}}"{%endif%}>
+            {{comment["first_name"]}} {{comment["last_name"]}} - {{comment["created_at"]}}
+            <p>
+              {{comment["comment"]}}
+            </p>
+          </div>
+          {% endfor %}
+          <form class="" action="/post/{{message["id"]}}" method="post">
+            <textarea name="post" rows="8" cols="200"></textarea>
+            <input type="submit" name="name" value="Post" style = "display:block; margin-left:1380px; background-color:green; color:white">
+          </form>
+        </div>
+      </p>
+    </div>
+    {% endfor %}
+  </body>
+</html>
