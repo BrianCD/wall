@@ -1,3 +1,12 @@
 .comments{
   padding-left: 40px;
 }
+.submit{
+  display:block;
+  margin-left:1380px;
+  background-color:blue;
+  color:white
+}
+.g{
+  background-color: green;
+}

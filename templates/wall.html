@@ -12,7 +12,7 @@
     <hr>
     <form class="" action="/post" method="post">
       <textarea name="post" rows="8" cols="200"></textarea>
-      <input type="submit" name="name" value="Post" style = "display:block; margin-left:1380px; background-color:blue; color:white">
+      <input class="submit" type="submit" name="name" value="Post">
     </form>
     {% for message in messages: %}
     <div class="message" {%if col%}style = "background-color:{{message["bcolor"]}};color:{{message["mcolor"]}}"{%endif%}>
@@ -30,7 +30,7 @@
           {% endfor %}
           <form class="" action="/post/{{message["id"]}}" method="post">
             <textarea name="post" rows="8" cols="200"></textarea>
-            <input type="submit" name="name" value="Post" style = "display:block; margin-left:1380px; background-color:green; color:white">
+            <input class="submit g" type="submit" name="name" value="Post">
           </form>
         </div>
       </p>
